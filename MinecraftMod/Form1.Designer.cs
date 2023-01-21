@@ -32,9 +32,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CaptionTitleTextbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,23 +83,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GameMods";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(92, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Multi-Instance";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.CaptionTitleTextbox);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Location = new System.Drawing.Point(6, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(118, 50);
+            this.groupBox3.Size = new System.Drawing.Size(118, 70);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Design";
@@ -111,6 +102,26 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "1E1E1F";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Multi-Instance";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // textBox2
+            // 
+            this.CaptionTitleTextbox.Location = new System.Drawing.Point(6, 42);
+            this.CaptionTitleTextbox.Name = "textBox2";
+            this.CaptionTitleTextbox.Size = new System.Drawing.Size(100, 20);
+            this.CaptionTitleTextbox.TabIndex = 1;
+            this.CaptionTitleTextbox.Text = "Minecraft";
+            this.CaptionTitleTextbox.TextChanged += new System.EventHandler(this.OnCaptionChanged);
             // 
             // Form1
             // 
@@ -141,6 +152,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CaptionTitleTextbox;
     }
 }
 

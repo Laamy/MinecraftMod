@@ -8,7 +8,8 @@ namespace MinecraftMod
 {
     public class Minecraft
     {
-        public static bool MultiInstance // I'll fix this later
+        // works but isn't the best
+        public static bool MultiInstance 
         {
             get
             {
@@ -41,6 +42,7 @@ namespace MinecraftMod
             }
         }
 
+        // this is proper practice
         public static string Backcolor
         {
             get
@@ -73,6 +75,45 @@ namespace MinecraftMod
                 foreach (XmlNode node in nodes)
                 {
                     node.Attributes["BackgroundColor"].Value = value;
+                }
+
+                doc.Save("MinecraftData\\AppxManifest.xml");
+            }
+        }
+
+
+        public static string CaptionTitle
+        {
+            get
+            {
+                string result = null;
+
+                using (XmlReader reader = XmlReader.Create("MinecraftData\\AppxManifest.xml"))
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsStartElement() && reader.Name == "uap:VisualElements")
+                        {
+                            string backgroundColor = reader["DisplayName"];
+                            result = backgroundColor;
+                            reader.Dispose();
+                            break;
+                        }
+                    }
+                }
+
+                return result;
+            }
+            set
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(File.ReadAllText("MinecraftData\\AppxManifest.xml"));
+
+                XmlNodeList nodes = doc.SelectNodes("//*[@DisplayName]");
+
+                foreach (XmlNode node in nodes)
+                {
+                    node.Attributes["DisplayName"].Value = value; // checking Attributes not Node types.
                 }
 
                 doc.Save("MinecraftData\\AppxManifest.xml");
