@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CaptionTitleTextbox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.CaptionTitleTextbox = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.UpdateData = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,7 +81,7 @@
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 101);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(132, 154);
+            this.groupBox2.Size = new System.Drawing.Size(132, 123);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GameMods";
@@ -93,6 +96,15 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Design";
+            // 
+            // CaptionTitleTextbox
+            // 
+            this.CaptionTitleTextbox.Location = new System.Drawing.Point(6, 42);
+            this.CaptionTitleTextbox.Name = "CaptionTitleTextbox";
+            this.CaptionTitleTextbox.Size = new System.Drawing.Size(100, 20);
+            this.CaptionTitleTextbox.TabIndex = 1;
+            this.CaptionTitleTextbox.Text = "Minecraft";
+            this.CaptionTitleTextbox.TextChanged += new System.EventHandler(this.OnCaptionChanged);
             // 
             // textBox1
             // 
@@ -116,18 +128,26 @@
             // 
             // textBox2
             // 
-            this.CaptionTitleTextbox.Location = new System.Drawing.Point(6, 42);
-            this.CaptionTitleTextbox.Name = "textBox2";
-            this.CaptionTitleTextbox.Size = new System.Drawing.Size(100, 20);
-            this.CaptionTitleTextbox.TabIndex = 1;
-            this.CaptionTitleTextbox.Text = "Minecraft";
-            this.CaptionTitleTextbox.TextChanged += new System.EventHandler(this.OnCaptionChanged);
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(150, 12);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(172, 275);
+            this.textBox2.TabIndex = 3;
+            // 
+            // UpdateData
+            // 
+            this.UpdateData.Enabled = true;
+            this.UpdateData.Interval = 1000;
+            this.UpdateData.Tick += new System.EventHandler(this.UpdateData_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 299);
+            this.ClientSize = new System.Drawing.Size(334, 299);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -140,6 +160,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,6 +174,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox CaptionTitleTextbox;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Timer UpdateData;
     }
 }
 

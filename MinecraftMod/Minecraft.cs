@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing.Drawing2D;
-using System.IO;
-using System.Windows.Forms;
+﻿using System.IO;
 using System.Xml;
 
 namespace MinecraftMod
@@ -81,7 +78,6 @@ namespace MinecraftMod
             }
         }
 
-
         public static string CaptionTitle
         {
             get
@@ -94,8 +90,8 @@ namespace MinecraftMod
                     {
                         if (reader.IsStartElement() && reader.Name == "uap:VisualElements")
                         {
-                            string backgroundColor = reader["DisplayName"];
-                            result = backgroundColor;
+                            string captionTitle = reader["DisplayName"];
+                            result = captionTitle;
                             reader.Dispose();
                             break;
                         }
@@ -117,6 +113,55 @@ namespace MinecraftMod
                 }
 
                 doc.Save("MinecraftData\\AppxManifest.xml");
+            }
+        }
+
+        public static string GameVersion
+        {
+            get
+            {
+                string result = null;
+
+                using (XmlReader reader = XmlReader.Create("MinecraftData\\AppxManifest.xml"))
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsStartElement() && reader.Name == "Identity")
+                        {
+                            string gameVersion = reader["Version"];
+                            result = gameVersion;
+                            reader.Dispose();
+                            break;
+                        }
+                    }
+                }
+
+                return result;
+            }
+            // setting it doesnt do anything so just ignore
+        }
+
+        public static string GameArchitecture
+        {
+            get
+            {
+                string result = null;
+
+                using (XmlReader reader = XmlReader.Create("MinecraftData\\AppxManifest.xml"))
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsStartElement() && reader.Name == "Identity")
+                        {
+                            string gameVersion = reader["ProcessorArchitecture"];
+                            result = gameVersion;
+                            reader.Dispose();
+                            break;
+                        }
+                    }
+                }
+
+                return result;
             }
         }
     }

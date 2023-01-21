@@ -18,6 +18,13 @@ namespace MinecraftMod
         {
             checkBox1.Checked = Minecraft.MultiInstance;
             textBox1.Text = Minecraft.Backcolor;
+
+            if (Minecraft.CaptionTitle == "Minecraft")
+            {
+                Minecraft.CaptionTitle =
+                    $"Minecraft: Developer Edition ({Minecraft.GameVersion}, {Minecraft.GameArchitecture})";
+            }
+
             CaptionTitleTextbox.Text = Minecraft.CaptionTitle;
         }
 
@@ -56,5 +63,16 @@ namespace MinecraftMod
         private void textBox1_TextChanged(object sender, EventArgs e) => Minecraft.Backcolor = textBox1.Text;
 
         private void OnCaptionChanged(object sender, EventArgs e) => Minecraft.CaptionTitle = CaptionTitleTextbox.Text;
+
+        private void UpdateData_Tick(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+
+            textBox2.Text += "MultiInstance: " + Minecraft.MultiInstance;
+            textBox2.Text += "\r\n\r\nBackcolor: " + Minecraft.Backcolor;
+            textBox2.Text += "\r\n\r\nCaptionTitle: " + Minecraft.CaptionTitle;
+            textBox2.Text += "\r\n\r\nGameVersion: " + Minecraft.GameVersion;
+            textBox2.Text += "\r\n\r\nGameArchitecture: " + Minecraft.GameArchitecture;
+        }
     }
 }
