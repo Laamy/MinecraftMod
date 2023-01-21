@@ -1,10 +1,14 @@
-﻿using System.IO;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Xml;
 
 namespace MinecraftMod
 {
     public class Minecraft
     {
+        private static string crosshairLoc = "MinecraftData\\data\\resource_packs\\vanilla_base\\textures\\ui\\cross_hair.png";
+
         // works but isn't the best
         public static bool MultiInstance 
         {
@@ -163,6 +167,28 @@ namespace MinecraftMod
 
                 return result;
             }
+        }
+
+        public static Image ToastCrosshair
+        {
+            get
+            {
+                if (File.Exists(crosshairLoc))
+                {
+                    using (Stream stream = File.OpenRead(crosshairLoc))
+                        return Image.FromStream(stream);
+                }
+                return null;
+            }
+        }
+
+        public static void SetToastCrosshair(Bitmap texture)
+        {
+            if (File.Exists(crosshairLoc))
+                File.Delete(crosshairLoc);
+
+            texture.MakeTransparent(Color.Black);
+            texture.Save(crosshairLoc, ImageFormat.Png);
         }
     }
 }

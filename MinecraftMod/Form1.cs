@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MinecraftMod.Windows;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Windows.UI.Xaml.Media.Animation;
@@ -73,6 +74,12 @@ namespace MinecraftMod
             textBox2.Text += "\r\n\r\nCaptionTitle: " + Minecraft.CaptionTitle;
             textBox2.Text += "\r\n\r\nGameVersion: " + Minecraft.GameVersion;
             textBox2.Text += "\r\n\r\nGameArchitecture: " + Minecraft.GameArchitecture;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CrosshairDesigner form = new CrosshairDesigner(Minecraft.ToastCrosshair);
+            form.Show();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.UpdateData = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,11 +78,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 101);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(132, 123);
+            this.groupBox2.Size = new System.Drawing.Size(132, 142);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GameMods";
@@ -142,6 +144,16 @@
             this.UpdateData.Interval = 1000;
             this.UpdateData.Tick += new System.EventHandler(this.UpdateData_Tick);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 114);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Crosshair";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.TextBox CaptionTitleTextbox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Timer UpdateData;
+        private System.Windows.Forms.Button button3;
     }
 }
 
